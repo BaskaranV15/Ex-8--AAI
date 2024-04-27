@@ -1,5 +1,5 @@
- <H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+ <H3>ENTER YOUR NAME:BASKARAN V</H3>
+<H3>ENTER YOUR REGISTER NO:212222230020</H3>
 <H3>EX. NO.8</H3>
 <H3>DATE:</H3>
 <H1 ALIGN =CENTER>Implementation of Speech Recognition</H1>
@@ -22,9 +22,30 @@ Step 11: Perform speech recognition with exceptional handling:<Br>
 •	A generic exception block captures any other unexpected errors.<Br>
 <H3>Program:</H3>
 
-Insert your code her
+``` python
+import speech_recognition as sr
+# initialize the reconizer
+r=sr.Recognizer()
+# set duration for the audio
+duration=15 # second=
+# record audio
+print("say somthing:")
 
+with sr.Microphone() as source:
+    audio_date=r.listen(source,timeout=duration)
+try:
+    text=r.recognize_google(audio_date)
+    print("you said:",text)
+except sr.UnknownValueError:
+    print("sorry ,could not undersand audio")
+except sr.RequestError as e:
+    print(f'Error with the request to google speech recognation service:{e}')
+except Exception as e:
+    print(f'Error:{e}')
+```
+<br>
 <H3> Output:</H3>
-Show the results here
+![image](https://github.com/BaskaranV15/Ex-8--AAI/assets/118703522/26a6c5a6-cc36-4312-9a73-3736ffde3aa7)
+
 
 <H3> Result:</H3>
